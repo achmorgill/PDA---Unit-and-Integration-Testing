@@ -20,7 +20,13 @@ Calculator.prototype = {
   },
 
   divide: function(number){
+    if(number !=0) {
     this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    }else {
+      this.runningTotal = "division by zero is not valid"
+    }
+
+
   },
 
   numberClick: function(number) {
@@ -28,6 +34,7 @@ Calculator.prototype = {
     // when a number is clicked, if a previous operation has just been completed,
     // or there is a zero in the running total, clear the running total, and reset
     // the `newTotal` flag
+
 
     if (this.runningTotal == 0 || this.newTotal) {
       this.runningTotal = '';
@@ -74,6 +81,7 @@ Calculator.prototype = {
   },
 
   clearClick: function() {
+
     if (this.runningTotal == 0) {
       this.previousOperator = null;
       this.previousTotal = null;
